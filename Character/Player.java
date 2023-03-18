@@ -35,7 +35,7 @@ public class Player extends JFrame {
         super.paint(g);
 //
         //random location
-        // vì r = 25 nên là giới hạn của các nhân vật sẽ nhỏ hơn hoặc bằng screenWidth -25 và screenHeight - 25
+        // vì r = 25 nên là giới hạn của các nhân vật sẽ nhỏ hơn hoặc bằng screenWidth - r và screenHeight - r
 
         g.drawOval(finalX, finalY, r, r);
 
