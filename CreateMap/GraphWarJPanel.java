@@ -52,27 +52,26 @@ public class GraphWarJPanel extends JPanel implements Runnable{
         int playerYLocation = player.getY();
         int playerRLocation = player.getR();
 
+        int x1 = playerXLocation + playerRLocation;
+        int y1 = playerYLocation + playerRLocation/2;
 
-        for(int i = 0; i < screenWidth; i++) {
+        for(float i = 0; x1 < screenWidth && x1 > 0; i += 0.5) {
             //y = x + 3
-            int j = i;
-            int x1 = playerXLocation + playerRLocation;
-            int y1 = playerYLocation + playerRLocation/2;
 
-            int x2 = i + x1;
-            int y2 = j + y1;
+            int x2 = (int)i + x1;
+            int y2 = (int)(Math.sin(i) * i) + y1;
             g.drawLine(x1, y1, x2, y2);
+            x1 = x2;
+            y1 = y2;
             }
 
     }
 
     public int getWidth() {
-        int X = this.screenWidth;
-        return X;
+        return this.screenWidth;
     }
     public int getHeight() {
-        int Y = this.screenHeight;
-        return Y;
+        return this.screenHeight;
     }
 
 }
