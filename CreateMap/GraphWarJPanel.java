@@ -34,7 +34,7 @@ public class GraphWarJPanel extends JPanel implements Runnable{
     @Override
     public void run() {
         while(gameThread != null) {
-            System.out.println("The game loop is running");
+            //System.out.println("The game loop is running");
         }
     }
 
@@ -54,15 +54,17 @@ public class GraphWarJPanel extends JPanel implements Runnable{
 
         int x1 = playerXLocation + playerRLocation;
         int y1 = playerYLocation + playerRLocation/2;
+        double interval = 2;
+        double xCo = 1;
+        double yCo = 20;
 
-        for(float i = 0; x1 < screenWidth && x1 > 0; i += 0.5) {
+        for(float x = 0; x1 + x < screenWidth; x += interval) {
             //y = x + 3
 
-            int x2 = (int)i + x1;
-            int y2 = (int)(Math.sin(i) * i) + y1;
-            g.drawLine(x1, y1, x2, y2);
-            x1 = x2;
-            y1 = y2;
+            int y = y1 + (int) (Math.sin(x * xCo) * yCo);
+            int y2 = y1 + (int) (Math.sin((x + interval) * xCo) * yCo);
+            System.out.println(x + ", " + y + ", " + y2);
+            g.drawLine(x1 + (int)x, y, x1 + (int)((x + interval) * xCo), y2);
             }
 
     }
